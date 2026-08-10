@@ -1,4 +1,4 @@
-Sistema de Gestão de Academia
+Sistema de Gestão de Academia - SmartGym 
 
 ## Descrição
 
