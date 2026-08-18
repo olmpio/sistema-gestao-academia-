@@ -16,3 +16,54 @@
 | **Check-in** | Registro de entrada do aluno na catraca. | Controlar o acesso diário e gerar métricas de frequência. |
 
 ---
+
+# Levantamento dos Atributos
+
+## 1. Aluno
+* **_id**
+* **nome**
+* **cpf**
+* **email**
+* **telefone**
+* **dataNascimento**
+* **endereco** *(Documento incorporado)*
+  * **logradouro**
+  * **numero**
+  * **bairro**
+  * **cidade**
+  * **estado**
+
+## 2. Professor
+* **_id**
+* **nome**
+* **cref**
+* **email**
+* **telefone**
+* **turnoTrabalho** *(ex: Manhã, Noite)*
+
+## 3. Plano
+* **_id**
+* **nome** *(ex: "Plano Fit Anual")*
+* **valorMensal**
+* **duracaoMeses**
+* **beneficios** *(Array de strings)*
+
+## 4. Contrato
+* **_id**
+* **aluno_id** *(Referência)*
+* **plano_id** *(Referência)*
+* **dataInicio**
+* **dataFim**
+* **status** *(Ativo, Cancelado, Congelado)*
+
+## 5. Treino
+* **_id**
+* **aluno_id** *(Referência)*
+* **professor_id** *(Referência)*
+* **objetivo** *(ex: "Hipertrofia", "Emagrecimento")*
+* **dataCriacao**
+* **itensTreino** *(Array de documentos incorporados)*
+  * **exercicio_id** *(Referência)*
+  * **series**
+  * **repeticoes**
+  * **tempoDescanso**
