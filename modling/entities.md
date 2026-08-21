@@ -67,3 +67,46 @@
   * **series**
   * **repeticoes**
   * **tempoDescanso**
+*6. Exercício*
+├── _id
+├── nome
+├── grupoMuscular
+├── descricaoExecucao
+└── equipamento_id (Referência - opcional)
+
+*7. Pagamento*
+├── _id
+├── contrato_id (Referência)
+├── dataVencimento
+├── dataPagamento
+├── valor
+├── status (Pago, Pendente, Atrasado)
+└── metodoPagamento (Pix, Cartão, Dinheiro)
+
+*8. Avaliação Física*
+├── _id
+├── aluno_id (Referência)
+├── professor_id (Referência)
+├── dataAvaliacao
+├── peso
+├── altura
+├── percentualGordura
+└── medidasCorporais (Documento incorporado)
+    ├── bracoDireito
+    ├── coxaEsquerda
+    ├── cintura
+    └── peitoral
+
+*9. Equipamento*
+├── _id
+├── nome
+├── marca
+├── dataAquisicao
+└── dataProximaManutencao
+
+*10. Check-in*
+├── _id
+├── aluno_id (Referência)
+└── dataHoraAcesso
+
+---
