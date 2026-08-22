@@ -67,3 +67,47 @@
   * **series**
   * **repeticoes**
   * **tempoDescanso**
+
+## 6. Exercício
+* **_id**
+* **nome**
+* **grupo_muscular**
+* **descricao_execucao**
+* **equipamento_id** *(Referência - opcional)*
+
+## 7. Pagamento
+* **_id**
+* **contrato_id (Referência)**
+* **data_Vencimento**
+* **data_pagamento**
+* **valor**
+* **status** *(Pago, Pendente, Atrasado)*
+* **metodo_pagamento** *(Pix, Cartão, Dinheiro)*
+
+## 8. Avaliação Física
+* **_id**
+* **aluno_id** *(Referência)*
+* **professor_id** *(Referência)*
+* **data_avaliacao**
+* **peso**
+* **altura**
+* **percentual_gordura**
+* **medidas_corporais** *(Documento incorporado)*
+  * **braco_direito**
+  * **coxa_esquerda**
+  * **cintura**
+  * **peitoral**
+
+## 9. Equipamento
+* **_id**
+* **nome**
+* **marca**
+* **data_aquisicao**
+* **data_proxima_manutencao**
+
+## 10. Check-in
+* **_id**
+* **aluno_id** *(Referência)*
+* **data_hora_acesso**
+
+---
