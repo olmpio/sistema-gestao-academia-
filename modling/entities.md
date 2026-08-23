@@ -111,3 +111,17 @@
 * **data_hora_acesso**
 
 ---
+#  Identificação dos Principais Relacionamentos
+
+Para mapear como as informações se conectam no domínio da academia, identificamos as seguintes cardinalidades e relações lógicas entre as entidades:
+
+* **Aluno e Contrato (1:N):** Um aluno pode ter tido vários contratos ao longo do tempo (ex: renovações anuais), mas cada contrato pertence a apenas um aluno.
+* **Plano e Contrato (1:N):** O "Plano Anual" (catálogo) pode estar vinculado a centenas de contratos de diferentes alunos.
+* **Aluno e Treino (1:N):** Um aluno possui um histórico com várias fichas de treino, mas cada ficha é elaborada para aquele aluno específico.
+* **Professor e Treino (1:N):** Um professor elabora diversas fichas de treino para diversos alunos.
+* **Treino e Exercício (N:N):** Uma ficha de treino contém vários exercícios, e um mesmo exercício (ex: Supino) faz parte de diversas fichas de treino (essa relação é resolvida com os documentos embutidos `itensTreino` fazendo referência ao catálogo de Exercícios).
+* **Contrato e Pagamento (1:N):** Um contrato (ex: anual) gera vários pagamentos (12 mensalidades).
+* **Aluno e Check-in (1:N):** Um aluno realiza múltiplos acessos à catraca ao longo do tempo.
+* **Aluno e Avaliação Física (1:N):** O aluno faz diversas avaliações corporais durante o seu tempo na academia para comparar sua evolução.
+
+---
