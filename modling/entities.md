@@ -25,7 +25,7 @@
 * **cpf**
 * **email**
 * **telefone**
-* **dataNascimento**
+* **data_nascimento**
 * **endereco** *(Documento incorporado)*
   * **logradouro**
   * **numero**
@@ -39,21 +39,21 @@
 * **cref**
 * **email**
 * **telefone**
-* **turnoTrabalho** *(ex: Manhã, Noite)*
+* **turno_Trabalho** *(ex: Manhã, Noite)*
 
 ## 3. Plano
 * **_id**
 * **nome** *(ex: "Plano Fit Anual")*
-* **valorMensal**
-* **duracaoMeses**
+* **valor_mensal**
+* **duracao_meses**
 * **beneficios** *(Array de strings)*
 
 ## 4. Contrato
 * **_id**
 * **aluno_id** *(Referência)*
 * **plano_id** *(Referência)*
-* **dataInicio**
-* **dataFim**
+* **data_inicio**
+* **data_fim**
 * **status** *(Ativo, Cancelado, Congelado)*
 
 ## 5. Treino
@@ -61,12 +61,12 @@
 * **aluno_id** *(Referência)*
 * **professor_id** *(Referência)*
 * **objetivo** *(ex: "Hipertrofia", "Emagrecimento")*
-* **dataCriacao**
-* **itensTreino** *(Array de documentos incorporados)*
+* **data_criacao**
+* **itens_treino** *(Array de documentos incorporados)*
   * **exercicio_id** *(Referência)*
   * **series**
   * **repeticoes**
-  * **tempoDescanso**
+  * **tempo_descanso**
 
 ## 6. Exercício
 * **_id**
@@ -78,7 +78,7 @@
 ## 7. Pagamento
 * **_id**
 * **contrato_id (Referência)**
-* **data_Vencimento**
+* **data_vencimento**
 * **data_pagamento**
 * **valor**
 * **status** *(Pago, Pendente, Atrasado)*
