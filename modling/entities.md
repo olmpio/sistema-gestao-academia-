@@ -125,3 +125,30 @@ Para mapear como as informações se conectam no domínio da academia, identific
 * **Aluno e Avaliação Física (1:N):** O aluno faz diversas avaliações corporais durante o seu tempo na academia para comparar sua evolução.
 
 ---
+## 4. Discussão e Modelagem (Embedded x Collections)
+
+Seguindo a premissa de modelagem do MongoDB, nossas decisões foram baseadas na pergunta: **"Como os dados serão utilizados pela aplicação?"**
+
+Abaixo, justificamos a escolha de utilizar documentos embutidos (embedded) ou coleções separadas por referências (references) para os principais relacionamentos:
+
+### Decisões de Uso de Documentos Incorporados (Embedded Documents)
+
+1. **Endereço no Aluno (`endereco`)**
+   * **Justificativa:** O endereço é um dado que pertence exclusivamente a um único aluno (relação 1:1). Na aplicação, toda vez que acessarmos o perfil do aluno para ver seus dados cadastrais, precisaremos do endereço. Embutir esse dado evita uma busca desnecessária em outra collection, melhorando a performance de leitura.
+
+2. **Detalhes da Avaliação Física (`medidasCorporais`)**
+   * **Justificativa:** Em vez de criar uma entidade separada para as circunferências corporais, incorporamos dentro do documento de Avaliação Física. Esses dados sempre serão acessados e renderizados juntos na tela de histórico de avaliação do usuário.
+
+3. **Itens do Treino (`itensTreino` dentro de Treino)**
+   * **Justificativa:** A ficha de treino de um aluno é composta por vários exercícios (séries, repetições). Embutir a "linha do treino" dentro do documento `Treino` faz muito sentido, pois o aplicativo do aluno carregará a ficha inteira de uma só vez para que ele possa treinar. Nós apenas incorporamos as regras da execução (séries, repetições) e o ID do exercício, mantendo o cadastro base do exercício em uma collection separada.
+
+### Decisões de Uso de Coleções Separadas (Collections e Referências)
+
+1. **Aluno e Check-in**
+   * **Justificativa:** Se os check-ins fossem um array embutido dentro de `Aluno`, com o passar dos anos esse array cresceria infinitamente (padrão *Unbounded Array*), o que degrada a performance do MongoDB e pode ultrapassar o limite de 16MB do documento. Portanto, `Check-in` será uma collection separada que referencia o `aluno_id`. A aplicação fará inserções rápidas (alto volume de gravação na catraca).
+
+2. **Exercícios e Equipamentos (Catálogos)**
+   * **Justificativa:** A aplicação precisa listar todos os exercícios disponíveis de forma independente para que o professor monte o treino. Se embutíssemos dados do exercício dentro de cada treino, teríamos dados extremamente duplicados e, se o nome do exercício mudasse, teríamos que atualizar milhares de treinos.
+
+3. **Aluno e Treino / Avaliação Física**
+   * **Justificativa:** Um aluno pode ter dezenas de fichas de treino arquivadas e dezenas de avaliações físicas ao longo dos anos. Manter essas entidades em coleções separadas com referência ao `aluno_id` permite que o sistema busque apenas o "Treino Ativo" ou a "Última Avaliação", mantendo o documento principal do `Aluno` leve e rápido.
