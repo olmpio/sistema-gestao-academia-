@@ -1,0 +1,7 @@
+db.createCollection("alunos")
+db.createCollection("planos")
+db.createCollection("contratos")
+db.createCollection("treinos")
+db.createCollection("exercicios")
+db.createCollection("checkins")
+db.createCollection("equipamentos")
