@@ -15,7 +15,8 @@ Com base nas 10 entidades definidas (Aluno, Professor, Plano, Contrato, Treino, 
   * *Justificativa:* Garante unicidade global distribuída, evita colisões, possui indexação nativa otimizada e já embute um timestamp de criação, sendo ideal para alto volume de inserções (ex: check-ins).
 * **Exceção (Identificador Personalizado):** Para a coleção `planos`, optamos por usar um `_id` personalizado em String (ex: `"PLN-ANUAL"`).
   * *Justificativa:* Planos são entidades de catálogo com baixo volume de registros e raramente mudam. Um ID semântico facilita a leitura humana no banco e a referência em contratos.
-  * 3. Decisões: Embedded Documents vs References
+
+## 3. Decisões: Embedded Documents vs References
 
 | Relacionamento | Estratégia | Justificativa considerando leitura/escrita, tamanho e vida útil |
 | :--- | :--- | :--- |
