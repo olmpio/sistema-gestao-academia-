@@ -27,7 +27,7 @@ db.alunos.insertMany([
 ])
 
 let aluno1 = db.alunos.findOne({ nome: "Jefté Goes" })._id;
-let aluno2 = db.alunos.findOne({ nome: "Maria Silva" })._id
+let aluno2 = db.alunos.findOne({ nome: "Maria Silva" })._id;
 
 db.contratos.insertOne({
   aluno_id: aluno1,
