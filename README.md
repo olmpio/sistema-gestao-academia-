@@ -1,4 +1,4 @@
-# Sistema de Gestão de Academia (`sistema-gestao-academia`)
+# Sistema de Gestão de Academia
 
 Projeto desenvolvido para a disciplina de **Banco de Dados NoSQL**, implementando a camada de persistência e uma API REST funcional utilizando **Java**, **Spring Boot** e **MongoDB**.
 
