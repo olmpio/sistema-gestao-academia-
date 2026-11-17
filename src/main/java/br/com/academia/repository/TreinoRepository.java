@@ -2,6 +2,7 @@ package br.com.academia.repository;
 
 import br.com.academia.model.Treino;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import java.util.List;
 
 public interface TreinoRepository extends MongoRepository<Treino, String> {
 
