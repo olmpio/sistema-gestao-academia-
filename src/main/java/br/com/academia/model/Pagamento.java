@@ -45,3 +45,4 @@ public class Pagamento {
     public void setStatus(String status) { this.status = status; }
     public LocalDate getDataPagamento() { return dataPagamento; }
     public void setDataPagamento(LocalDate dataPagamento) { this.dataPagamento = dataPagamento; }
+    }
